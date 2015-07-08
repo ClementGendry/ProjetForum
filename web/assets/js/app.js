@@ -32976,23 +32976,53 @@ module.exports = angular;
 
     Forus.controller('TodoController', require('./controller/TodoController.js'));
     Forus.controller('HomeController', require('./controller/HomeController.js'));
+    Forus.controller('CategoryController', require('./controller/CategoryController.js'));
 
 })(require('angular'));
 
-},{"./controller/HomeController.js":7,"./controller/TodoController.js":8,"./routing.js":9,"angular":5,"angular-animate":2,"angular-ui-router":3}],7:[function(require,module,exports){
+},{"./controller/CategoryController.js":7,"./controller/HomeController.js":8,"./controller/TodoController.js":9,"./routing.js":10,"angular":5,"angular-animate":2,"angular-ui-router":3}],7:[function(require,module,exports){
+var CategoryController = function($scope, $rootScope, $stateParams) {
+
+    $scope.categories = [{
+        slug: 'sport'
+    },{
+        slug: 'art'
+    },{
+        slug: 'cinema'
+    },{
+        slug: 'musique'
+    },{
+        slug: 'jeux'
+    },{
+        slug: 'partage'
+    },{
+        slug: 'juridique'
+    },{
+        slug: 'high-tech'
+    }];
+
+    $scope.posts = [{}];
+
+    console.log($stateParams.slug);
+
+};
+
+module.exports = ['$scope', '$stateParams', CategoryController];
+
+},{}],8:[function(require,module,exports){
 var HomeController = function($scope) {
 };
 
 module.exports = ['$scope', HomeController];
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var TodoController = function() {
 
 };
 
 module.exports = TodoController;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var Routing = function($stateProvider, $urlRouterProvider) {
 
 $urlRouterProvider.otherwise("/accueil");
@@ -33018,9 +33048,9 @@ $stateProvider
     })
 
     .state('category', {
-        url: "/categorie/:category",
-        templateUrl: "partial/todo.html",
-        controller: 'TodoController'
+        url: "/categorie/:slug",
+        templateUrl: "partial/category.html",
+        controller: 'CategoryController'
     })
 
     .state('article', {

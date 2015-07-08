@@ -23,9 +23,9 @@ $stateProvider
     })
 
     .state('category', {
-        url: "/categorie/:category",
-        templateUrl: "partial/todo.html",
-        controller: 'TodoController'
+        url: "/categorie/:slug",
+        templateUrl: "partial/category.html",
+        controller: 'CategoryController'
     })
 
     .state('article', {

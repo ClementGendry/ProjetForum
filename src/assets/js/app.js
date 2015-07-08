@@ -11,5 +11,6 @@
 
     Forus.controller('TodoController', require('./controller/TodoController.js'));
     Forus.controller('HomeController', require('./controller/HomeController.js'));
+    Forus.controller('CategoryController', require('./controller/CategoryController.js'));
 
 })(require('angular'));
