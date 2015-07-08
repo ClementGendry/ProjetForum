@@ -8,10 +8,10 @@
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Montserrat:400,700' type='text/css'>
     <link rel="stylesheet" href="./assets/css/style.min.css"/>
 </head>
-<body ng-app="Forus" ng-init="home = false">
+<body ng-app="Forus">
 
     <nav class="top-nav">
-        <div class="top-nav_logo-box">
+        <div class="top-nav_logo-box" ui-sref="home">
             <img src="https://mirillis.com/gfx/company/mirillis_logo_white.png" alt="" class="top-nav_logo"/>
         </div>
 
@@ -85,7 +85,7 @@
         <div class="main_content">
 
             <div class="main_content_search-bar">
-                <div class="search-bar" ng-class="{'search-bar--closed': home}">
+                <div class="search-bar" ng-class="{'search-bar--closed': !isOnHome}">
 
                     <h1 class="search-bar_title">
                         Bienvenue sur le blog des Schtroumpfs
@@ -96,13 +96,13 @@
 
                     <div class="search-bar_input-box">
                         <input type="text" class="search-bar_text-input"/>
-                        <input type="button" class="search-bar_search-button" value="Go" ng-click="home = !home"/>
+                        <input type="button" class="search-bar_search-button" value="Go"/>
                     </div>
 
                 </div>
             </div>
 
-            <div class="main_content_view" ng-class="{'main_view--opened': home}" ui-view></div>
+            <div class="main_content_view" ng-class="{'main_view--opened': !isOnHome}" ui-view></div>
 
         </div>
     </div>

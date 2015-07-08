@@ -5,9 +5,13 @@
     Forus.config(require('./routing.js'));
 
     Forus.run(['$rootScope', '$state', function ($rootScope, $state) {
-            $rootScope.$state = $state;
+            $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+                $rootScope.isOnHome = toState.name == 'home';
+            })
         }
     ]);
+
+    Forus.directive('tab', require('./directive/TabDirective.js'));
 
     Forus.controller('TodoController', require('./controller/TodoController.js'));
     Forus.controller('HomeController', require('./controller/HomeController.js'));

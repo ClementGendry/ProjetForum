@@ -32970,9 +32970,13 @@ module.exports = angular;
     Forus.config(require('./routing.js'));
 
     Forus.run(['$rootScope', '$state', function ($rootScope, $state) {
-            $rootScope.$state = $state;
+            $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+                $rootScope.isOnHome = toState.name == 'home';
+            })
         }
     ]);
+
+    Forus.directive('tab', require('./directive/TabDirective.js'));
 
     Forus.controller('TodoController', require('./controller/TodoController.js'));
     Forus.controller('HomeController', require('./controller/HomeController.js'));
@@ -32980,8 +32984,9 @@ module.exports = angular;
 
 })(require('angular'));
 
-},{"./controller/CategoryController.js":7,"./controller/HomeController.js":8,"./controller/TodoController.js":9,"./routing.js":10,"angular":5,"angular-animate":2,"angular-ui-router":3}],7:[function(require,module,exports){
+},{"./controller/CategoryController.js":7,"./controller/HomeController.js":8,"./controller/TodoController.js":9,"./directive/TabDirective.js":10,"./routing.js":11,"angular":5,"angular-animate":2,"angular-ui-router":3}],7:[function(require,module,exports){
 var CategoryController = function($scope, $rootScope, $stateParams) {
+
 
     $scope.categories = [{
         slug: 'sport'
@@ -33001,13 +33006,84 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         slug: 'high-tech'
     }];
 
-    $scope.posts = [{}];
+    $scope.posts = [
+        {
+            "id": 0,
+            "auhtor": "Velez Griffith",
+            "isSuccess": false,
+            "created_at": new Date(),
+            "title": "Koffee",
+            "messages": 246,
+            "likes": 25,
+            "views": 1365
+        },
+        {
+            "id": 1,
+            "auhtor": "Edith Crosby",
+            "isSuccess": true,
+            "created_at": new Date(),
+            "title": "Newcube",
+            "messages": 317,
+            "likes": 20,
+            "views": 1726
+        },
+        {
+            "id": 2,
+            "auhtor": "Jodi Sosa",
+            "isSuccess": false,
+            "created_at": new Date(),
+            "title": "Maroptic",
+            "messages": 324,
+            "likes": 38,
+            "views": 1488
+        },
+        {
+            "id": 3,
+            "auhtor": "Maricela Winters",
+            "isSuccess": false,
+            "created_at": new Date(),
+            "title": "Kinetica",
+            "messages": 157,
+            "likes": 34,
+            "views": 1900
+        },
+        {
+            "id": 4,
+            "auhtor": "Valdez Fields",
+            "isSuccess": false,
+            "created_at": new Date(),
+            "title": "Digitalus",
+            "messages": 354,
+            "likes": 26,
+            "views": 542
+        },
+        {
+            "id": 5,
+            "auhtor": "Turner Matthews",
+            "isSuccess": true,
+            "created_at": new Date(),
+            "title": "Comtent",
+            "messages": 373,
+            "likes": 34,
+            "views": 1954
+        },
+        {
+            "id": 6,
+            "auhtor": "Espinoza Hooper",
+            "isSuccess": false,
+            "created_at": new Date(),
+            "title": "Kindaloo",
+            "messages": 163,
+            "likes": 24,
+            "views": 1214
+        }
+    ];
 
     console.log($stateParams.slug);
 
 };
 
-module.exports = ['$scope', '$stateParams', CategoryController];
+module.exports = ['$scope', '$rootScope', '$stateParams', CategoryController];
 
 },{}],8:[function(require,module,exports){
 var HomeController = function($scope) {
@@ -33023,6 +33099,13 @@ var TodoController = function() {
 module.exports = TodoController;
 
 },{}],10:[function(require,module,exports){
+var TabDirective = function() {
+
+};
+
+module.exports = TabDirective;
+
+},{}],11:[function(require,module,exports){
 var Routing = function($stateProvider, $urlRouterProvider) {
 
 $urlRouterProvider.otherwise("/accueil");
