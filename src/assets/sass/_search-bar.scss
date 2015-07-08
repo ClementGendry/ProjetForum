@@ -1,0 +1,51 @@
+$search-bar-height-opened: 300px;
+$search-bar-height-closed: 50px;
+
+.search-bar {
+
+    text-align: center;
+    height: $search-bar-height-opened;
+    background-color: $side-nav-gray-darker;
+
+    transition: all .3s;
+
+    &_title,
+    &_subtitle {
+        line-height: 1em;
+        opacity: 1;
+        transition: all .2s;
+    }
+
+    &_input-box {
+        line-height: $search-bar-height-closed;
+        height: $search-bar-height-closed;
+    }
+
+    &_text-input {
+
+    }
+
+    &_search-button {
+
+    }
+
+    &--closed {
+        height: $search-bar-height-closed;
+    }
+
+    &--closed &_subtitle,
+    &--closed &_title {
+        line-height: 0em;
+        opacity: 0;
+    }
+
+    &--closed.ng-animate &_subtitle,
+    &--closed.ng-animate &_title {
+        display: block;
+    }
+
+    &--closed:not(.ng-animate) &_subtitle,
+    &--closed:not(.ng-animate) &_title {
+        display: none;
+    }
+}

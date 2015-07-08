@@ -1,3 +1,17 @@
+$success-color: #31ba87;
+$error-color: #e7575a;
+
+$main-color: $success-color;
+
+@import "reset";
+
 body {
-    background-color: red;
+    overflow: hidden;
 }
+
+@import "top-nav";
+@import "side-nav";
+@import "search-bar";
+@import "main";
+
+@import "action-bar";

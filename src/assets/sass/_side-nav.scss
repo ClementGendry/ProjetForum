@@ -1,0 +1,65 @@
+$side-nav-gray-darker: #1f222d;
+$side-nav-gray: #252933;
+$side-nav-gray-lighter: #50535b;
+
+$side-nav-link-color: #767d87;
+$side-nav-link-color-ligher: #f4f4f5;
+
+$side-nav-badge-background: $side-nav-gray-lighter;
+$side-nav-badge-color: $side-nav-link-color-ligher;
+
+.side-nav {
+    width: 100%;
+    height: 100%;
+    background-color: $side-nav-gray;
+
+    &_block {
+        padding: 145px 20px 40px;
+        border-bottom: 1px solid $side-nav-gray-darker;
+    }
+
+    &_title {
+        display: block;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        margin-bottom: 1em;
+    }
+
+    &_link {
+        text-decoration: none;
+        display: block;
+        padding: 0 5px;
+        margin: 3px 0;
+
+        color: $side-nav-link-color;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 28px;
+
+        transition: all .2s;
+
+        &_badge {
+            float: right;
+
+            margin: .25em;
+            line-height: 1em;
+            background-color: $side-nav-badge-background;
+            border-radius: 14px;
+            padding: 3px 8px;
+            color: $side-nav-badge-color;
+        }
+
+        &:hover {
+            background-color: $side-nav-gray-darker;
+            color: $side-nav-link-color-ligher;
+        }
+
+        &:hover &_badge {
+            background-color: transparent;
+        }
+    }
+}

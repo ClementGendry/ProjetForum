@@ -1,0 +1,59 @@
+$action-bar-height: $top-nav-height;
+$action-bar-color: #68778a;
+
+.action-bar {
+
+    &_link,
+    &_dropdown {
+        height: $action-bar-height;
+        display: inline-block;
+        line-height: $action-bar-height;
+        vertical-align: middle;
+        text-align: center;
+        text-decoration: none;
+
+        color: $action-bar-color;
+
+        border-left: 1px solid whitesmoke;
+    }
+
+    &_link {
+        position: relative;
+
+        &_notification {
+            position: absolute;
+            z-index: 1;
+            top: 22px;
+            right: 22px;
+
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            line-height: 16px;
+
+            color: white;
+            background-color: $error-color;
+            font-size: 10px;
+            font-weight: 400;
+        }
+
+        &_icon {
+            line-height: 16px;
+            width: $action-bar-height;
+        }
+    }
+
+    &_dropdown {
+        box-sizing: border-box;
+        padding: 0 20px;
+        white-space: nowrap;
+
+        &_avatar {
+            vertical-align: middle;
+            margin-left: 20px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+    }
+}

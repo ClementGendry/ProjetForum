@@ -1,0 +1,29 @@
+$side-nav-width: 240px;
+
+.main{
+
+    display: flex;
+    height: calc( 100vh - #{$top-nav-height} );
+
+    &_side-nav {
+        flex: 0 0 $side-nav-width;
+        height: 100%;
+    }
+
+    &_content {
+        flex: 1 1;
+        background-color: #fafafa;
+        box-shadow:inset 0 5px 5px -5px rgba(0,0,0,.3);
+        display: flex;
+        flex-direction: column;
+
+        &_search-bar {
+            flex: 0 0;
+        }
+
+        &_view {
+            flex: 1 1;
+            overflow: auto;
+        }
+    }
+}

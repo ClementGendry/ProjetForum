@@ -1,0 +1,29 @@
+$top-nav-height: 75px;
+$top-nav-logo: 60px;
+$top-nav-logo-box-width: 240px;
+$top-nav-color: #68778a;
+
+
+.top-nav {
+    height: $top-nav-height;
+    display: flex;
+
+    &_logo-box {
+        flex: 0 0 $top-nav-logo-box-width;
+        background: $main-color;
+        height: $top-nav-height;
+        display: flex;
+    }
+
+    &_logo {
+        margin: auto;
+        max-width: $top-nav-logo-box-width * .8;
+        max-height: $top-nav-height * .8;
+    }
+
+    &_action-bar {
+        flex: 1 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
