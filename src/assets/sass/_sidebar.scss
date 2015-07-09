@@ -22,6 +22,7 @@ $sidebar-element-maxsize: 290px;
     }
 
     &_link {
+      text-decoration: none;
       width: 80px;
       height: 27px;
       font-size: 14px;
@@ -94,12 +95,12 @@ $sidebar-element-maxsize: 290px;
       }
 
       &_link {
+        text-decoration: none;
         color: #31ba87;
         display: inline-block;
         float: right;
         text-transform: uppercase;
         cursor: pointer;
-
       }
 
     }

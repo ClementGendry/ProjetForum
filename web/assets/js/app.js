@@ -33148,9 +33148,14 @@ var TabsetController = ['$scope', function($scope) {
 module.exports = TabsetController;
 
 },{}],10:[function(require,module,exports){
-var TodoController = function() {
+var TodoController = ['$scope', '$state', '$window',function($scope, $state, $window) {
+    $scope.name = $state.$current.name;
+    $scope.url = $state.$current.url.source;
 
-};
+    $scope.back = function() {
+        $window.history.back();
+    }
+}];
 
 module.exports = TodoController;
 
@@ -33310,19 +33315,49 @@ $stateProvider
         controller: 'TodoController'
     })
 
+    .state('notifications', {
+        url: "/notifications",
+        templateUrl: "partial/todo.html",
+        controller: 'TodoController'
+    })
+
+    .state('messages', {
+        url: "/messages",
+        templateUrl: "partial/todo.html",
+        controller: 'TodoController'
+    })
+
+    .state('account', {
+        url: "/mon-compte",
+        templateUrl: "partial/todo.html",
+        controller: 'TodoController'
+    })
+
     .state('category', {
         url: "/categorie/:slug",
         templateUrl: "partial/category.html",
         controller: 'CategoryController'
     })
 
-    .state('article', {
+    .state('popular-posts', {
+        url: "/articles-populaires",
+        templateUrl: "partial/todo.html",
+        controller: 'TodoController'
+    })
+
+    .state('recent-posts', {
+        url: "/articles-recents",
+        templateUrl: "partial/todo.html",
+        controller: 'TodoController'
+    })
+
+    .state('post-details', {
         url: "/article/:id",
         templateUrl: "partial/todo.html",
         controller: 'TodoController'
     })
 
-    .state('article-creation', {
+    .state('post-creation', {
         url: "/creation/article",
         templateUrl: "partial/todo.html",
         controller: 'TodoController'

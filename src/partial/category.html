@@ -19,8 +19,8 @@
 
         <div class="sidebar_title">
 
-            <p class="sidebar_title_name">Topics Populaires : </p>
-            <a class="sidebar_title_link">Tout voir</a>
+            <p class="sidebar_title_name">Posts Populaires : </p>
+            <a class="sidebar_title_link" ui-sref="popular-posts">Tout voir</a>
 
         </div>
 
@@ -35,7 +35,7 @@
 
             <div class="sidebar_article_title">
                 <p class="sidebar_article_title_author">Par : cinEma<!--{{ post.author }}--></p>
-                <a class="sidebar_article_title_link">voir le post</a>
+                <a class="sidebar_article_title_link" ui-sref="post-details({id: 1})">voir le post</a>
             </div>
 
         </div>
@@ -49,7 +49,7 @@
 
             <div class="sidebar_article_title">
                 <p class="sidebar_article_title_author">Par : JDG<!--{{ post.author }}--></p>
-                <a class="sidebar_article_title_link">voir le post</a>
+                <a class="sidebar_article_title_link" ui-sref="post-details({id: 2})">voir le post</a>
             </div>
 
         </div>
@@ -57,7 +57,7 @@
         <div class="sidebar_title">
 
             <p class="sidebar_title_name">Posts Récents : </p>
-            <a class="sidebar_title_link">Tout voir</a>
+            <a class="sidebar_title_link" ui-sref="post-details({id: 3})">Tout voir</a>
 
         </div>
 
@@ -72,7 +72,7 @@
 
             <div class="sidebar_article_title">
                 <p class="sidebar_article_title_author">Par : JDG<!--{{ post.author }}--></p>
-                <a class="sidebar_article_title_link">voir le post</a>
+                <a class="sidebar_article_title_link" ui-sref="post-details({id: 4})">voir le post</a>
             </div>
 
         </div>
