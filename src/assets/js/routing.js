@@ -36,8 +36,8 @@ $stateProvider
 
     .state('account', {
         url: "/mon-compte",
-        templateUrl: "partial/todo.html",
-        controller: 'TodoController'
+        templateUrl: "partial/mon-compte.html",
+        controller: 'AccountController'
     })
 
     .state('disconnect', {

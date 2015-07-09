@@ -79,7 +79,8 @@ module.exports = function (grunt) {
                     'web/partial/home.html': 'src/partial/home.html',
                     'web/partial/todo.html': 'src/partial/todo.html',
                     'web/partial/category.html': 'src/partial/category.html',
-                    'web/partial/article-details.html': 'src/partial/article-details.html'
+                    'web/partial/article-details.html': 'src/partial/article-details.html',
+                    'web/partial/mon-compte.html': 'src/partial/mon-compte.html'
                 }
             },
             directive: {
