@@ -22,8 +22,19 @@ $side-nav-width: 240px;
         }
 
         &_view {
+            display: flex;
             flex: 1 1;
             overflow: auto;
+
+            &_main {
+                flex: 1 1;
+            }
+
+            &_sidebar {
+                flex: 0 0 328px;
+                height: 100%;
+                background-color: white;
+            }
         }
     }
 }
