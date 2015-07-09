@@ -26,4 +26,88 @@ $top-nav-color: #68778a;
         display: flex;
         justify-content: flex-end;
     }
+
+    &_logout {
+        display: none;
+        position: absolute;
+        top: 67px;
+        right: 18px;
+        width: 234px;
+        height: 100px;
+        font-size: 12px;
+        border-bottom: 1px solid #eaeaea;
+        border-left: 1px solid #eaeaea;
+        border-right: 1px solid #eaeaea;
+        border-radius: 2px;
+        background-color: white;
+        z-index: 1000;
+
+        &--opened {
+            display: block;
+
+        }
+
+        &:after {
+            bottom: 100%;
+            left: 92%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-color: rgba(49, 62, 83, 0);
+            border-bottom-color: #313e53;
+            border-width: 6px;
+            margin-left: -6px;
+
+        }
+
+        &-user {
+            width: 100%;
+            height: 40px;
+            background-color: #313e53;
+
+            &-name {
+                display: inline-block;
+                width: 82%;
+                color: white;
+                margin-left: 10px;
+                line-height: 40px;
+
+            }
+
+            &-params {
+                display: inline-block;
+                width: 12%;
+                color: white;
+                font-size: 16px;
+                line-height: 40px;
+                float: right;
+                cursor: pointer;
+
+            }
+
+        }
+
+        &-button {
+            width: 100%;
+            text-align: center;
+
+            &-link {
+                width: 190px;
+                height: 30px;
+                display: block;
+                margin: 0 auto;
+                margin-top: 15px;
+                line-height: 30px;
+                border-radius: 2px;
+                text-decoration: none;
+                color: white;
+                background-color: #e7575a;
+
+            }
+        }
+
+    }
 }

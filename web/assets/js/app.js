@@ -32991,7 +32991,6 @@ module.exports = angular;
 
 
 })(require('angular'));
-
 },{"./controller/CategoryController.js":7,"./controller/HomeController.js":8,"./controller/TabsetController.js":9,"./controller/TodoController.js":10,"./directive/TabContentTranscludeDirective.js":11,"./directive/TabDirective.js":12,"./directive/TabHeadingTranscludeDirective.js":13,"./directive/TabsetDirective.js":14,"./routing.js":15,"angular":5,"angular-animate":2,"angular-ui-router":3}],7:[function(require,module,exports){
 var CategoryController = function($scope, $rootScope, $stateParams) {
 

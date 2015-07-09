@@ -24,12 +24,23 @@
                 <a class="action-bar_link" ui-sref="messages">
                     <i class="action-bar_link_icon fa fa-envelope"></i>
                 </a>
-                <a class="action-bar_dropdown" ui-sref="account">
+                <a class="action-bar_dropdown" ng-click="showLogout = !showLogout">
                     Marc Duboc
                     <img src="https://avatars2.githubusercontent.com/u/6181197?v=3&s=460" alt="" class="action-bar_dropdown_avatar"/>
                 </a>
             </div>
         </div>
+
+        <div class="top-nav_logout" ng-class="{ 'top-nav_logout--opened': showLogout  }">
+            <div class="top-nav_logout-user">
+                <p class="top-nav_logout-user-name">Bonjour.iceMad</p>
+                <i class="top-nav_logout-user-params fa fa-cog"></i>
+            </div>
+            <div class="top-nav_logout-button">
+                <a class="top-nav_logout-button-link" href="">Se déconnecter</a>
+            </div>
+        </div>
+
     </nav>
 
     <div class="main">
