@@ -16,17 +16,12 @@
         </div>
 
         <div class="top-nav_search-bar" ng-hide="isOnHome">
-            <div class="search-bar">
-                <input type="text" ng-model="searchQuery.input" class="search-bar_text-input"/>
-                <button class="search-bar_search-button">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
+            <search-bar></search-bar>
         </div>
 
         <div class="top-nav_action-bar">
             <div class="action-bar" ng-class="{'action-bar--transparent': isOnHome}">
-                <a class="action-bar_link" ui-sref="favoris">
+                <a class="action-bar_link" ui-sref="favorites">
                     <i class="action-bar_link_icon fa fa-star"></i>
                 </a>
                 <a class="action-bar_link" ui-sref="notifications">

@@ -79,8 +79,6 @@ module.exports = function (grunt) {
                     'web/partial/home.html': 'src/partial/home.html',
                     'web/partial/todo.html': 'src/partial/todo.html',
                     'web/partial/category.html': 'src/partial/category.html',
-                    'web/partial/tab.html': 'src/partial/tab.html',
-                    'web/partial/tabset.html': 'src/partial/tabset.html',
                     'web/partial/article-details.html': 'src/partial/article-details.html'
                 }
             },

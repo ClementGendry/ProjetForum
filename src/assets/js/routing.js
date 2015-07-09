@@ -52,6 +52,12 @@ $stateProvider
         controller: 'CategoryController'
     })
 
+    .state('favorites', {
+        url: "/favoris",
+        templateUrl: "partial/todo.html",
+        controller: 'TodoController'
+    })
+
     .state('popular-posts', {
         url: "/articles-populaires",
         templateUrl: "partial/todo.html",
