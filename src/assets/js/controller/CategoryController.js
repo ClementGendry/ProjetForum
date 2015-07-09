@@ -1,6 +1,5 @@
 var CategoryController = function($scope, $rootScope, $stateParams) {
 
-
     $scope.categories = [{
         slug: 'sport'
     },{
@@ -22,7 +21,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
     $scope.posts = [
         {
             "id": 0,
-            "auhtor": "Velez Griffith",
+            "author": "Velez Griffith",
             "isSuccess": false,
             "created_at": new Date(),
             "title": "Koffee",
@@ -32,7 +31,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 1,
-            "auhtor": "Edith Crosby",
+            "author": "Edith Crosby",
             "isSuccess": true,
             "created_at": new Date(),
             "title": "Newcube",
@@ -42,7 +41,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 2,
-            "auhtor": "Jodi Sosa",
+            "author": "Jodi Sosa",
             "isSuccess": false,
             "created_at": new Date(),
             "title": "Maroptic",
@@ -52,7 +51,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 3,
-            "auhtor": "Maricela Winters",
+            "author": "Maricela Winters",
             "isSuccess": false,
             "created_at": new Date(),
             "title": "Kinetica",
@@ -62,7 +61,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 4,
-            "auhtor": "Valdez Fields",
+            "author": "Valdez Fields",
             "isSuccess": false,
             "created_at": new Date(),
             "title": "Digitalus",
@@ -72,7 +71,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 5,
-            "auhtor": "Turner Matthews",
+            "author": "Turner Matthews",
             "isSuccess": true,
             "created_at": new Date(),
             "title": "Comtent",
@@ -82,7 +81,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 6,
-            "auhtor": "Espinoza Hooper",
+            "author": "Espinoza Hooper",
             "isSuccess": false,
             "created_at": new Date(),
             "title": "Kindaloo",
@@ -92,7 +91,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         }
     ];
 
-    console.log($stateParams.slug);
+    $scope.slug = $stateParams.slug;
 
 };
 

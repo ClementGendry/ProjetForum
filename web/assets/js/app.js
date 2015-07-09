@@ -32976,17 +32976,24 @@ module.exports = angular;
         }
     ]);
 
-    Forus.directive('tab', require('./directive/TabDirective.js'));
 
     Forus.controller('TodoController', require('./controller/TodoController.js'));
     Forus.controller('HomeController', require('./controller/HomeController.js'));
     Forus.controller('CategoryController', require('./controller/CategoryController.js'));
 
+
+
+    Forus.controller('TabsetController', require('./controller/TabsetController.js'));
+    Forus.directive('tabset', require('./directive/TabsetDirective.js'));
+    Forus.directive('tab', require('./directive/TabDirective.js'));
+    Forus.directive('tabHeadingTransclude', require('./directive/TabHeadingTranscludeDirective.js'));
+    Forus.directive('tabContentTransclude', require('./directive/TabContentTranscludeDirective.js'));
+
+
 })(require('angular'));
 
-},{"./controller/CategoryController.js":7,"./controller/HomeController.js":8,"./controller/TodoController.js":9,"./directive/TabDirective.js":10,"./routing.js":11,"angular":5,"angular-animate":2,"angular-ui-router":3}],7:[function(require,module,exports){
+},{"./controller/CategoryController.js":7,"./controller/HomeController.js":8,"./controller/TabsetController.js":9,"./controller/TodoController.js":10,"./directive/TabContentTranscludeDirective.js":11,"./directive/TabDirective.js":12,"./directive/TabHeadingTranscludeDirective.js":13,"./directive/TabsetDirective.js":14,"./routing.js":15,"angular":5,"angular-animate":2,"angular-ui-router":3}],7:[function(require,module,exports){
 var CategoryController = function($scope, $rootScope, $stateParams) {
-
 
     $scope.categories = [{
         slug: 'sport'
@@ -33009,7 +33016,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
     $scope.posts = [
         {
             "id": 0,
-            "auhtor": "Velez Griffith",
+            "author": "Velez Griffith",
             "isSuccess": false,
             "created_at": new Date(),
             "title": "Koffee",
@@ -33019,7 +33026,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 1,
-            "auhtor": "Edith Crosby",
+            "author": "Edith Crosby",
             "isSuccess": true,
             "created_at": new Date(),
             "title": "Newcube",
@@ -33029,7 +33036,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 2,
-            "auhtor": "Jodi Sosa",
+            "author": "Jodi Sosa",
             "isSuccess": false,
             "created_at": new Date(),
             "title": "Maroptic",
@@ -33039,7 +33046,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 3,
-            "auhtor": "Maricela Winters",
+            "author": "Maricela Winters",
             "isSuccess": false,
             "created_at": new Date(),
             "title": "Kinetica",
@@ -33049,7 +33056,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 4,
-            "auhtor": "Valdez Fields",
+            "author": "Valdez Fields",
             "isSuccess": false,
             "created_at": new Date(),
             "title": "Digitalus",
@@ -33059,7 +33066,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 5,
-            "auhtor": "Turner Matthews",
+            "author": "Turner Matthews",
             "isSuccess": true,
             "created_at": new Date(),
             "title": "Comtent",
@@ -33069,7 +33076,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         },
         {
             "id": 6,
-            "auhtor": "Espinoza Hooper",
+            "author": "Espinoza Hooper",
             "isSuccess": false,
             "created_at": new Date(),
             "title": "Kindaloo",
@@ -33079,7 +33086,7 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
         }
     ];
 
-    console.log($stateParams.slug);
+    $scope.slug = $stateParams.slug;
 
 };
 
@@ -33092,20 +33099,193 @@ var HomeController = function($scope) {
 module.exports = ['$scope', HomeController];
 
 },{}],9:[function(require,module,exports){
+var TabsetController = ['$scope', function($scope) {
+    var ctrl = this,
+        tabs = ctrl.tabs = $scope.tabs = [];
+
+    ctrl.select = function(selectedTab) {
+        angular.forEach(tabs, function(tab) {
+            if (tab.active && tab !== selectedTab) {
+                tab.active = false;
+                tab.onDeselect();
+            }
+        });
+        selectedTab.active = true;
+        selectedTab.onSelect();
+    };
+
+    ctrl.addTab = function addTab(tab) {
+        tabs.push(tab);
+        // we can't run the select function on the first tab
+        // since that would select it twice
+        if (tabs.length === 1 && tab.active !== false) {
+            tab.active = true;
+        } else if (tab.active) {
+            ctrl.select(tab);
+        }
+        else {
+            tab.active = false;
+        }
+    };
+
+    ctrl.removeTab = function removeTab(tab) {
+        var index = tabs.indexOf(tab);
+        //Select a new tab if the tab to be removed is selected and not destroyed
+        if (tab.active && tabs.length > 1 && !destroyed) {
+            //If this is the last tab, select the previous tab. else, the next tab.
+            var newActiveIndex = index == tabs.length - 1 ? index - 1 : index + 1;
+            ctrl.select(tabs[newActiveIndex]);
+        }
+        tabs.splice(index, 1);
+    };
+
+    var destroyed;
+    $scope.$on('$destroy', function() {
+        destroyed = true;
+    });
+}];
+
+module.exports = TabsetController;
+
+},{}],10:[function(require,module,exports){
 var TodoController = function() {
 
 };
 
 module.exports = TodoController;
 
-},{}],10:[function(require,module,exports){
-var TabDirective = function() {
+},{}],11:[function(require,module,exports){
+var TabContentTranscludeDirective = function() {
+    return {
+        restrict: 'A',
+        require: '^tabset',
+        link: function(scope, elm, attrs) {
+            var tab = scope.$eval(attrs.tabContentTransclude);
 
+            //Now our tab is ready to be transcluded: both the tab heading area
+            //and the tab content area are loaded.  Transclude 'em both.
+            tab.$transcludeFn(tab.$parent, function(contents) {
+                angular.forEach(contents, function(node) {
+                    if (isTabHeading(node)) {
+                        //Let tabHeadingTransclude know.
+                        tab.headingElement = node;
+                    } else {
+                        elm.append(node);
+                    }
+                });
+            });
+        }
+    };
+    function isTabHeading(node) {
+        return node.tagName &&  (
+            node.hasAttribute('tab-heading') ||
+            node.hasAttribute('data-tab-heading') ||
+            node.tagName.toLowerCase() === 'tab-heading' ||
+            node.tagName.toLowerCase() === 'data-tab-heading'
+            );
+    }
 };
+
+module.exports = TabContentTranscludeDirective;
+
+},{}],12:[function(require,module,exports){
+var TabDirective = ['$parse', '$log', function($parse, $log) {
+    return {
+        require: '^tabset',
+        restrict: 'EA',
+        replace: true,
+        templateUrl: 'partial/tab.html',
+        transclude: true,
+        scope: {
+            active: '=?',
+            heading: '@',
+            onSelect: '&select', //This callback is called in contentHeadingTransclude
+            //once it inserts the tab's content into the dom
+            onDeselect: '&deselect'
+        },
+        controller: function() {
+            //Empty controller so other directives can require being 'under' a tab
+        },
+        compile: function(elm, attrs, transclude) {
+            return function postLink(scope, elm, attrs, tabsetCtrl) {
+                scope.$watch('active', function(active) {
+                    if (active) {
+                        tabsetCtrl.select(scope);
+                    }
+                });
+
+                scope.disabled = false;
+                if ( attrs.disable ) {
+                    scope.$parent.$watch($parse(attrs.disable), function(value) {
+                        scope.disabled = !! value;
+                    });
+                }
+
+                // Deprecation support of "disabled" parameter
+                // fix(tab): IE9 disabled attr renders grey text on enabled tab #2677
+                // This code is duplicated from the lines above to make it easy to remove once
+                // the feature has been completely deprecated
+                if ( attrs.disabled ) {
+                    $log.warn('Use of "disabled" attribute has been deprecated, please use "disable"');
+                    scope.$parent.$watch($parse(attrs.disabled), function(value) {
+                        scope.disabled = !! value;
+                    });
+                }
+
+                scope.select = function() {
+                    if ( !scope.disabled ) {
+                        scope.active = true;
+                    }
+                };
+
+                tabsetCtrl.addTab(scope);
+                scope.$on('$destroy', function() {
+                    tabsetCtrl.removeTab(scope);
+                });
+
+                //We need to transclude later, once the content container is ready.
+                //when this link happens, we're inside a tab heading.
+                scope.$transcludeFn = transclude;
+            };
+        }
+    };
+}];
 
 module.exports = TabDirective;
 
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
+var TabHeadingTranscludeDirective = [function() {
+    return {
+        restrict: 'A',
+        require: '^tab',
+        link: function(scope, elm, attrs, tabCtrl) {
+            scope.$watch('headingElement', function updateHeadingElement(heading) {
+                if (heading) {
+                    elm.html('');
+                    elm.append(heading);
+                }
+            });
+        }
+    };
+}];
+
+module.exports = TabHeadingTranscludeDirective;
+
+},{}],14:[function(require,module,exports){
+var TabsetDirective = function() {
+    return {
+        restrict: 'EA',
+        transclude: true,
+        replace: true,
+        scope: {},
+        controller: 'TabsetController',
+        templateUrl: 'partial/tabset.html'
+    };
+};
+
+module.exports = TabsetDirective;
+
+},{}],15:[function(require,module,exports){
 var Routing = function($stateProvider, $urlRouterProvider) {
 
 $urlRouterProvider.otherwise("/accueil");

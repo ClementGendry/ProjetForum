@@ -1,3 +1,33 @@
-<div ng-repeat="post in posts">
-    {{ post.title }}
-</div>
+<br/>
+<br/>
+
+
+<h1>
+    {{ slug }}
+</h1>
+
+<br/>
+<br/>
+
+
+
+<tabset>
+    <tab heading="Pertinence">
+        <div ng-repeat="post in posts">
+            {{ post.title }}
+
+            <br/>
+            <div>
+                {{ 'by ' + post.author }}
+            </div>
+
+            <hr/>
+
+        </div>
+    </tab>
+
+    <tab heading="autre">
+        Au autre
+    </tab>
+
+</tabset>

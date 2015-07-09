@@ -1,0 +1,18 @@
+.tabs {
+    &_tab-list {
+        &_tab {
+            
+            &--active {
+
+            }
+        }
+    }
+    &_content {
+        &_pane {
+            display: none;
+            &--active {
+                display: block;
+            }
+        }
+    }
+}
