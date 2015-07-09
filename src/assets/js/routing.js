@@ -66,8 +66,8 @@ $stateProvider
 
     .state('post-details', {
         url: "/article/:id",
-        templateUrl: "partial/todo.html",
-        controller: 'TodoController'
+        templateUrl: "partial/article-details.html",
+        controller: 'PostController'
     })
 
     .state('post-creation', {
