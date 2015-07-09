@@ -78,9 +78,7 @@ module.exports = function (grunt) {
                     //'web/partial/file.html': 'src/partial/file.html'
                     'web/partial/home.html': 'src/partial/home.html',
                     'web/partial/todo.html': 'src/partial/todo.html',
-                    'web/partial/category.html': 'src/partial/category.html',
-                    'web/partial/tab.html': 'src/partial/tab.html',
-                    'web/partial/tabset.html': 'src/partial/tabset.html'
+                    'web/partial/category.html': 'src/partial/category.html'
                 }
             },
             directive: {
@@ -90,6 +88,8 @@ module.exports = function (grunt) {
                 },
                 files: {
                     //'web/directive/file.html': 'src/directive/file.html'
+                    'web/directive/tab.html': 'src/directive/tab.html',
+                    'web/directive/tabset.html': 'src/directive/tabset.html'
                 }
             }
         },

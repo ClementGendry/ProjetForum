@@ -1,4 +1,4 @@
-var HomeController = function($scope) {
-};
+var HomeController = ['$scope', '$rootScope', function($scope, $rootScope) {
+}];
 
-module.exports = ['$scope', HomeController];
+module.exports = HomeController;

@@ -1,38 +1,14 @@
-$search-bar-height-opened: 300px;
-$search-bar-height-closed: 50px;
+$search-bar-height: 50px;
 
 .search-bar {
 
-    text-align: center;
-    height: $search-bar-height-opened;
-    background-color: $side-nav-gray-darker;
-
-    transition: all .3s;
-
-    &_title,
-    &_subtitle {
-        color: white;
-        line-height: 1em;
-        opacity: 1;
-        transition: all .2s;
-    }
-
-    &_title {
-        font-size: 25px;
-    }
-
-    &_input-box {
-        line-height: $search-bar-height-closed;
-        height: $search-bar-height-closed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    display: flex;
+    align-items: center;
 
     &_text-input,
     &_search-button {
+        background-color: #f4f7fa;
         box-sizing: border-box;
-        background: white;
         border: none;
         padding: 0;
         height: 40px;
@@ -40,7 +16,7 @@ $search-bar-height-closed: 50px;
     }
 
     &_text-input {
-        flex: 0 0 250px;
+        flex: 1 0;
         padding: 10px 0 10px 10px;
     }
 
@@ -50,23 +26,19 @@ $search-bar-height-closed: 50px;
         flex: 0 0 40px;
     }
 
-    &--closed {
-        height: $search-bar-height-closed;
+    &--big-rounded &_text-input,
+    &--big-rounded &_search-button {
+        height: 60px;
     }
 
-    &--closed &_subtitle,
-    &--closed &_title {
-        line-height: 0em;
-        opacity: 0;
+    &--big-rounded &_text-input {
+        border-radius: 4px 0 0 4px;
     }
 
-    &--closed.ng-animate &_subtitle,
-    &--closed.ng-animate &_title {
-        display: block;
-    }
-
-    &--closed:not(.ng-animate) &_subtitle,
-    &--closed:not(.ng-animate) &_title {
-        display: none;
+    &--big-rounded &_search-button {
+        flex: 0 0 60px;
+        font-size: 1.2em;
+        color: #7d8794;
+        border-radius: 0 4px 4px 0;
     }
 }

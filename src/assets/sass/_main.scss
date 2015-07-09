@@ -1,40 +1,32 @@
 $side-nav-width: 240px;
 
 .main{
-
     display: flex;
     height: calc( 100vh - #{$top-nav-height} );
 
     &_side-nav {
+        transition: margin-left .3s;
         flex: 0 0 $side-nav-width;
         height: 100%;
+        &--closed {
+            margin-left: -$side-nav-width;
+        }
     }
 
-    &_content {
-        flex: 1 1;
-        background-color: #fafafa;
-        box-shadow:inset 0 5px 5px -5px rgba(0,0,0,.3);
+    &_view {
         display: flex;
-        flex-direction: column;
+        flex: 1 1;
+        overflow: auto;
 
-        &_search-bar {
-            flex: 0 0;
+        &_content {
+            flex: 1 1;
+            display: flex;
         }
 
-        &_view {
-            display: flex;
-            flex: 1 1;
-            overflow: auto;
-
-            &_main {
-                flex: 1 1;
-            }
-
-            &_sidebar {
-                flex: 0 0 328px;
-                height: 100%;
-                background-color: white;
-            }
+        &_sidebar {
+            flex: 0 0 328px;
+            height: 100%;
+            background: white;
         }
     }
 }

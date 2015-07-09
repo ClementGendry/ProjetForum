@@ -1,0 +1,32 @@
+.homepage {
+    flex: 1 0;
+    text-align: center;
+    padding: 100px 30px;
+
+    @include bannerBackground;
+
+    &_title {
+        margin-bottom: 30px;
+        color: white;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 50px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    &_subtitle {
+        color: white;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 33px;
+        letter-spacing: 1px;
+        max-width: 960px;
+        margin: 0 auto 50px;
+    }
+
+    &_search-bar {
+        width: 650px;
+        margin: 0 auto;
+    }
+}

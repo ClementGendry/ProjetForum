@@ -32969,19 +32969,18 @@ module.exports = angular;
 
     Forus.config(require('./routing.js'));
 
-    Forus.run(['$rootScope', '$state', function ($rootScope, $state) {
-            $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-                $rootScope.isOnHome = toState.name == 'home';
-            })
-        }
-    ]);
-
-
     Forus.controller('AppController', require('./controller/AppController.js'));
     Forus.controller('TodoController', require('./controller/TodoController.js'));
     Forus.controller('HomeController', require('./controller/HomeController.js'));
     Forus.controller('CategoryController', require('./controller/CategoryController.js'));
 
+
+    Forus.run(['$rootScope', function ($rootScope) {
+            $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+                $rootScope.isOnHome = toState.name == 'home';
+            })
+        }
+    ]);
 
 
     Forus.controller('TabsetController', require('./controller/TabsetController.js'));
@@ -32998,6 +32997,10 @@ var AppController = function($scope, $rootScope, $stateParams) {
 
     $scope.toggleProfileDropdown = function() {
         $scope.profileDropdownIsVisible = !$scope.profileDropdownIsVisible;
+    };
+
+    $rootScope.searchQuery = {
+        input: ''
     }
 
 };
@@ -33105,10 +33108,10 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
 module.exports = ['$scope', '$rootScope', '$stateParams', CategoryController];
 
 },{}],9:[function(require,module,exports){
-var HomeController = function($scope) {
-};
+var HomeController = ['$scope', '$rootScope', function($scope, $rootScope) {
+}];
 
-module.exports = ['$scope', HomeController];
+module.exports = HomeController;
 
 },{}],10:[function(require,module,exports){
 var TabsetController = ['$scope', function($scope) {
@@ -33211,7 +33214,7 @@ var TabDirective = ['$parse', '$log', function($parse, $log) {
         require: '^tabset',
         restrict: 'EA',
         replace: true,
-        templateUrl: 'partial/tab.html',
+        templateUrl: 'directive/tab.html',
         transclude: true,
         scope: {
             active: '=?',
@@ -33296,7 +33299,7 @@ var TabsetDirective = function() {
         replace: true,
         scope: {},
         controller: 'TabsetController',
-        templateUrl: 'partial/tabset.html'
+        templateUrl: 'directive/tabset.html'
     };
 };
 

@@ -4,9 +4,14 @@ $error-color: #e7575a;
 $main-color: $success-color;
 
 @import "reset";
+@import "mixins";
 
 body {
     overflow: hidden;
+}
+
+* {
+    transition-timing-function: cubic-bezier(.55,0,.1,1);
 }
 
 @import "top-nav";
@@ -14,6 +19,7 @@ body {
 @import "search-bar";
 @import "main";
 @import "sidebar";
+@import "homepage";
 
 @import "action-bar";
 @import "tabs";

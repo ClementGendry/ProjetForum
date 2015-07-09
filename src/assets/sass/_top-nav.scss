@@ -3,10 +3,21 @@ $top-nav-logo: 60px;
 $top-nav-logo-box-width: 240px;
 $top-nav-color: #68778a;
 
-
 .top-nav {
     height: $top-nav-height;
     display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 50;
+
+    &:not(&--transparent) {
+        box-shadow: 0 0 5px 0 rgba(0,0,0,.4);
+    }
+
+    &--transparent,
+    &--transparent &_logo-box {
+        @include bannerBackground;
+    }
 
     &_logo-box {
         flex: 0 0 $top-nav-logo-box-width;
@@ -17,8 +28,13 @@ $top-nav-color: #68778a;
 
     &_logo {
         margin: auto;
-        max-width: $top-nav-logo-box-width * .8;
-        max-height: $top-nav-height * .8;
+        max-width: $top-nav-logo-box-width * .7;
+        max-height: $top-nav-height * .7;
+    }
+
+    &_search-bar {
+        flex: 0 0 330px;
+        padding: 0 25px;
     }
 
     &_action-bar {

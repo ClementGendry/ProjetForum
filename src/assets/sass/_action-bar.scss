@@ -13,10 +13,15 @@ $action-bar-color: #68778a;
         text-decoration: none;
         cursor: pointer;
 
-        color: $action-bar-color;
+        color: white;
+    }
 
+    &:not(&--transparent) &_link,
+    &:not(&--transparent) &_dropdown {
+        color: $action-bar-color;
         border-left: 1px solid whitesmoke;
     }
+
 
     &_link {
         position: relative;

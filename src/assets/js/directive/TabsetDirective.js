@@ -5,7 +5,7 @@ var TabsetDirective = function() {
         replace: true,
         scope: {},
         controller: 'TabsetController',
-        templateUrl: 'partial/tabset.html'
+        templateUrl: 'directive/tabset.html'
     };
 };
 

@@ -3,7 +3,7 @@ var TabDirective = ['$parse', '$log', function($parse, $log) {
         require: '^tabset',
         restrict: 'EA',
         replace: true,
-        templateUrl: 'partial/tab.html',
+        templateUrl: 'directive/tab.html',
         transclude: true,
         scope: {
             active: '=?',
