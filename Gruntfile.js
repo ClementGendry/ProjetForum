@@ -4,8 +4,9 @@ module.exports = function (grunt) {
 
     grunt.registerTask('compile-css', ['sass:app', 'autoprefixer:app']);
     grunt.registerTask('compile-js', ['browserify:app', 'uglify:app']);
+    grunt.registerTask('compile-html', ['htmlmin:index', 'htmlmin:partial', 'htmlmin:directive']);
 
-    grunt.registerTask('init', ['compile-js', 'compile-css']);
+    grunt.registerTask('init', ['compile-js', 'compile-css', 'compile-html']);
 
     grunt.registerTask('default', ['watch']);
 

@@ -33154,7 +33154,6 @@ var TodoController = function() {
 
 module.exports = TodoController;
 
-<<<<<<< HEAD
 },{}],11:[function(require,module,exports){
 var TabContentTranscludeDirective = function() {
     return {
@@ -33184,16 +33183,6 @@ var TabContentTranscludeDirective = function() {
             node.tagName.toLowerCase() === 'tab-heading' ||
             node.tagName.toLowerCase() === 'data-tab-heading'
             );
-=======
-},{}],10:[function(require,module,exports){
-var TabDirective = function() {
-    return {
-        restrict: 'E',
-        transclude: true,
-        templateUrl: '../partial/tabs.html',
-        scope: {}
-        //link: function(scope, elem, attr) {}
->>>>>>> sidebar
     }
 };
 
