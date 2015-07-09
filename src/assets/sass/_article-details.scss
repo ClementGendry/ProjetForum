@@ -83,6 +83,28 @@
 
     }
 
+    &_resolved {
+      display: inline-block;
+      margin-left: 40px;
+      margin-top: 8px;
+      font-size: 12px;
+      float: right;
+
+      &-icon {
+        display: inline-block;
+        color: $success-color;
+
+      }
+
+      &-text {
+        display: inline-block;
+        color: #d8d8d8;
+        margin-left: 13px;
+
+      }
+
+    }
+
   }
 
   &_title {
