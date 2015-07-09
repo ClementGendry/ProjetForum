@@ -40,6 +40,12 @@ $stateProvider
         controller: 'TodoController'
     })
 
+    .state('disconnect', {
+        url: "/deconnexion",
+        templateUrl: "partial/todo.html",
+        controller: 'TodoController'
+    })
+
     .state('category', {
         url: "/categorie/:slug",
         templateUrl: "partial/category.html",

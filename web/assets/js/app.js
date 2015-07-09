@@ -32977,6 +32977,7 @@ module.exports = angular;
     ]);
 
 
+    Forus.controller('AppController', require('./controller/AppController.js'));
     Forus.controller('TodoController', require('./controller/TodoController.js'));
     Forus.controller('HomeController', require('./controller/HomeController.js'));
     Forus.controller('CategoryController', require('./controller/CategoryController.js'));
@@ -32991,7 +32992,19 @@ module.exports = angular;
 
 
 })(require('angular'));
-},{"./controller/CategoryController.js":7,"./controller/HomeController.js":8,"./controller/TabsetController.js":9,"./controller/TodoController.js":10,"./directive/TabContentTranscludeDirective.js":11,"./directive/TabDirective.js":12,"./directive/TabHeadingTranscludeDirective.js":13,"./directive/TabsetDirective.js":14,"./routing.js":15,"angular":5,"angular-animate":2,"angular-ui-router":3}],7:[function(require,module,exports){
+
+},{"./controller/AppController.js":7,"./controller/CategoryController.js":8,"./controller/HomeController.js":9,"./controller/TabsetController.js":10,"./controller/TodoController.js":11,"./directive/TabContentTranscludeDirective.js":12,"./directive/TabDirective.js":13,"./directive/TabHeadingTranscludeDirective.js":14,"./directive/TabsetDirective.js":15,"./routing.js":16,"angular":5,"angular-animate":2,"angular-ui-router":3}],7:[function(require,module,exports){
+var AppController = function($scope, $rootScope, $stateParams) {
+
+    $scope.toggleProfileDropdown = function() {
+        $scope.profileDropdownIsVisible = !$scope.profileDropdownIsVisible;
+    }
+
+};
+
+module.exports = ['$scope', '$rootScope', '$stateParams', AppController];
+
+},{}],8:[function(require,module,exports){
 var CategoryController = function($scope, $rootScope, $stateParams) {
 
     $scope.categories = [{
@@ -33091,13 +33104,13 @@ var CategoryController = function($scope, $rootScope, $stateParams) {
 
 module.exports = ['$scope', '$rootScope', '$stateParams', CategoryController];
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var HomeController = function($scope) {
 };
 
 module.exports = ['$scope', HomeController];
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var TabsetController = ['$scope', function($scope) {
     var ctrl = this,
         tabs = ctrl.tabs = $scope.tabs = [];
@@ -33146,7 +33159,7 @@ var TabsetController = ['$scope', function($scope) {
 
 module.exports = TabsetController;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 var TodoController = ['$scope', '$state', '$window',function($scope, $state, $window) {
     $scope.name = $state.$current.name;
     $scope.url = $state.$current.url.source;
@@ -33158,7 +33171,7 @@ var TodoController = ['$scope', '$state', '$window',function($scope, $state, $wi
 
 module.exports = TodoController;
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var TabContentTranscludeDirective = function() {
     return {
         restrict: 'A',
@@ -33192,7 +33205,7 @@ var TabContentTranscludeDirective = function() {
 
 module.exports = TabContentTranscludeDirective;
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var TabDirective = ['$parse', '$log', function($parse, $log) {
     return {
         require: '^tabset',
@@ -33257,7 +33270,7 @@ var TabDirective = ['$parse', '$log', function($parse, $log) {
 
 module.exports = TabDirective;
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 var TabHeadingTranscludeDirective = [function() {
     return {
         restrict: 'A',
@@ -33275,7 +33288,7 @@ var TabHeadingTranscludeDirective = [function() {
 
 module.exports = TabHeadingTranscludeDirective;
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 var TabsetDirective = function() {
     return {
         restrict: 'EA',
@@ -33289,7 +33302,7 @@ var TabsetDirective = function() {
 
 module.exports = TabsetDirective;
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 var Routing = function($stateProvider, $urlRouterProvider) {
 
 $urlRouterProvider.otherwise("/accueil");
@@ -33328,6 +33341,12 @@ $stateProvider
 
     .state('account', {
         url: "/mon-compte",
+        templateUrl: "partial/todo.html",
+        controller: 'TodoController'
+    })
+
+    .state('disconnect', {
+        url: "/deconnexion",
         templateUrl: "partial/todo.html",
         controller: 'TodoController'
     })

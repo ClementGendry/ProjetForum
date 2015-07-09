@@ -8,7 +8,7 @@
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Montserrat:400,700' type='text/css'>
     <link rel="stylesheet" href="./assets/css/style.min.css"/>
 </head>
-<body ng-app="Forus">
+<body ng-app="Forus" ng-controller="AppController">
 
     <nav class="top-nav">
         <div class="top-nav_logo-box" ui-sref="home">
@@ -24,23 +24,24 @@
                 <a class="action-bar_link" ui-sref="messages">
                     <i class="action-bar_link_icon fa fa-envelope"></i>
                 </a>
-                <a class="action-bar_dropdown" ng-click="showLogout = !showLogout">
-                    Marc Duboc
+                <a class="action-bar_dropdown" ng-click="toggleProfileDropdown()">
+                    IceMaD
                     <img src="https://avatars2.githubusercontent.com/u/6181197?v=3&s=460" alt="" class="action-bar_dropdown_avatar"/>
                 </a>
             </div>
         </div>
 
-        <div class="top-nav_logout" ng-class="{ 'top-nav_logout--opened': showLogout  }">
+        <div class="top-nav_logout" ng-class="{ 'top-nav_logout--opened': profileDropdownIsVisible  }">
             <div class="top-nav_logout-user">
-                <p class="top-nav_logout-user-name">Bonjour.iceMad</p>
-                <i class="top-nav_logout-user-params fa fa-cog"></i>
+                <p class="top-nav_logout-user-name">Bonjour Marc</p>
+                <a ui-sref="account" ng-click="toggleProfileDropdown()">
+                    <i class="top-nav_logout-user-params fa fa-cog"></i>
+                </a>
             </div>
             <div class="top-nav_logout-button">
-                <a class="top-nav_logout-button-link" href="">Se déconnecter</a>
+                <a class="top-nav_logout-button-link" ui-sref="disconnect" ng-click="toggleProfileDropdown()">Se déconnecter</a>
             </div>
         </div>
-
     </nav>
 
     <div class="main">
