@@ -126,11 +126,11 @@
       position: relative;
       margin-right: 10px;
       overflow: hidden;
-      border-radius: 10px;
       display: inline-block;
 
       &-cropped {
         position: absolute;
+        border-radius: 10px;
         width: 100%;
         z-index: 1;
 
@@ -321,12 +321,12 @@
         margin-top: 15px;
         margin-right: 10px;
         overflow: hidden;
-        border-radius: 10px;
         display: inline-block;
 
         &-cropped {
           position: absolute;
           width: 100%;
+          border-radius: 10px;
           z-index: 1;
 
         }
