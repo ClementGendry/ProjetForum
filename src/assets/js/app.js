@@ -9,7 +9,6 @@
     Forus.controller('HomeController', require('./controller/HomeController.js'));
     Forus.controller('CategoryController', require('./controller/CategoryController.js'));
 
-
     Forus.run(['$rootScope', function ($rootScope) {
             $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
                 $rootScope.isOnHome = toState.name == 'home';
@@ -17,12 +16,12 @@
         }
     ]);
 
+    Forus.directive('searchBar', require('./directive/SearchBarDirective.js'));
 
     Forus.controller('TabsetController', require('./controller/TabsetController.js'));
     Forus.directive('tabset', require('./directive/TabsetDirective.js'));
     Forus.directive('tab', require('./directive/TabDirective.js'));
     Forus.directive('tabHeadingTransclude', require('./directive/TabHeadingTranscludeDirective.js'));
     Forus.directive('tabContentTransclude', require('./directive/TabContentTranscludeDirective.js'));
-
 
 })(require('angular'));

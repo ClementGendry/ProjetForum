@@ -90,7 +90,8 @@ module.exports = function (grunt) {
                 files: {
                     //'web/directive/file.html': 'src/directive/file.html'
                     'web/directive/tab.html': 'src/directive/tab.html',
-                    'web/directive/tabset.html': 'src/directive/tabset.html'
+                    'web/directive/tabset.html': 'src/directive/tabset.html',
+                    'web/directive/search-bar.html': 'src/directive/search-bar.html'
                 }
             }
         },
