@@ -129,8 +129,8 @@
       display: inline-block;
 
       &-cropped {
-        position: absolute;
         border-radius: 10px;
+        position: absolute;
         width: 100%;
         z-index: 1;
 
@@ -324,9 +324,9 @@
         display: inline-block;
 
         &-cropped {
+          border-radius: 10px;
           position: absolute;
           width: 100%;
-          border-radius: 10px;
           z-index: 1;
 
         }
