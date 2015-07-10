@@ -15,7 +15,9 @@
     &_tabset {
         margin: 0 0 0 25px;
         width: 695px;
-        border-bottom: 1px solid #e5e5e5;
+        & .tabs_tab-list{
+            border-bottom: 1px solid #e5e5e5;
+        }
     }
 
     &_tab {
