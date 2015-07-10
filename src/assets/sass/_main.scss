@@ -28,5 +28,12 @@ $side-nav-width: 240px;
             height: 100%;
             background: white;
         }
+
+        &_account {
+            flex: 1 1;
+            float: left;
+            display: flex;
+            background-color: #fafafa;
+        }
     }
 }
