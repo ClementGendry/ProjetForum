@@ -8,6 +8,7 @@
     Forus.controller('TodoController', require('./controller/TodoController.js'));
     Forus.controller('HomeController', require('./controller/HomeController.js'));
     Forus.controller('CategoryController', require('./controller/CategoryController.js'));
+    Forus.controller('AccountController', require('./controller/AccountController.js'));
 
     Forus.run(['$rootScope', function ($rootScope) {
             $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
