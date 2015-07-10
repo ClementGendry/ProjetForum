@@ -6,6 +6,7 @@
 
     Forus.controller('AppController', require('./controller/AppController.js'));
     Forus.controller('TodoController', require('./controller/TodoController.js'));
+    Forus.controller('PostController', require('./controller/PostController.js'));
     Forus.controller('HomeController', require('./controller/HomeController.js'));
     Forus.controller('CategoryController', require('./controller/CategoryController.js'));
     Forus.controller('AccountController', require('./controller/AccountController.js'));
