@@ -37,10 +37,60 @@
             </div>
         </div>
 
-        <div class="homepage_add-post-form">
-            <div class="homepage_subtitle">
+        <div class="homepage_add-post-strate">
+            <div class="homepage_subtitle--grey">
                 Créer votre post :
             </div>
+
+            <div class="homepage_add-post-form">
+
+                <form class="add-post-form" action="">
+                    <input class="add-post-form_title-input" placeholder="Donnez-lui un titre" type="text"/>
+
+                    <div class="add-post-form_option-line">
+                        <div class="add-post-form_type-box">
+                            <label class="add-post-form_type-input">
+                                <input name="add-post-form[type]" value="question" type="radio"/>
+                                Question
+                            </label>
+                            <label class="add-post-form_type-input">
+                                <input name="add-post-form[type]" value="discussion" type="radio"/>
+                                Discussion
+                            </label>
+                            <label class="add-post-form_type-input">
+                                <input name="add-post-form[type]" value="poll" type="radio"/>
+                                Sondage
+                            </label>
+                        </div>
+                        <select class="add-post-form_category-input" name="add-post-form[category]">
+                            <option value="0">Catégorie</option>
+                            <option value="1">Sport</option>
+                            <option value="2">Art</option>
+                            <option value="3">Cinéma</option>
+                            <option value="4">Musique</option>
+                            <option value="5">Jeux</option>
+                        </select>
+                    </div>
+
+                    <textarea class="add-post-form_content-input" name="add-post-form[content]" id="" cols="30" rows="10"></textarea>
+
+                    <div class="add-post-form_option-line add-post-form_option-line--footer">
+                        <div class="add-post-form_upload-box">
+                            <button class="add-post-form_button">
+                                <i class="fa fa-paperclip"></i>
+                            </button>
+                            <button class="add-post-form_button">
+                                <i class="fa fa-folder"></i>
+                            </button>
+                        </div>
+                        <button class="add-post-form_send-button" ui-sref="post-details({id: 1})">
+                            Envoyer
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+
         </div>
 
         <div class="homepage_footer">

@@ -26,6 +26,12 @@ $homepage-footer-bg: $homepage-color;
         letter-spacing: 1px;
         max-width: 960px;
         margin: 0 auto 50px;
+
+        &--grey {
+            color: #9b9b9b;
+            font-size: 25px;
+            line-height: 30px;
+        }
     }
 
     &_search-bar {
@@ -74,8 +80,13 @@ $homepage-footer-bg: $homepage-color;
         }
     }
 
-    &_add-post-form {
+    &_add-post-strate {
+        background-color: white;
+    }
 
+    &_add-post-form {
+        max-width: 740px;
+        margin: 30px auto;
     }
 
     &_footer {
